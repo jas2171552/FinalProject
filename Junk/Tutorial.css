@@ -1,0 +1,113 @@
+/*  JavaScript 6th Edition
+    Final Project
+
+    Author: Jason Richmond
+    Date:   12/02/2018
+
+    Filename: Tutorial.css	
+*/
+
+* {
+    box-sizing: border-box;
+}
+.header, .footer {
+    background-color: #b19f40;
+    color: white;
+    padding: 15px;
+}
+.column {
+    float: left;
+    padding: 15px;
+}
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Set Width for left side menu */
+.menu {
+    width: 20%;
+}
+/* Set Width for main cntent container */
+.content {
+    width: 80%;
+}
+/* clear formatting for left menu */
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+/* Set background color and padding between list items */
+.menu li {
+    padding: 8px;
+    margin-bottom: 8px;
+    background-color: #fad334;
+    color: #ffffff;
+	font-size: 25px;
+	
+}
+/* change color from yellow to green on mouseover */
+.menu li:hover {
+    background-color: #b19f40;
+}
+
+a {
+text-decoration: none;
+font-family: "Arial Black";
+color:            black;
+}
+
+a2 {
+text-decoration: none;
+font-family: "Arial Black";
+color:            white;
+font-size: 15px;
+}
+a3 {
+text-decoration: none;
+font-family: "Arial Black";
+color:            white;
+font-size: 15px;
+padding-left:4em;
+}
+
+title {
+text-decoration: none;
+font-family: "Arial Black";
+color:            white;
+font-size: 15px;
+padding-left:4em;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#main-pic{
+	width: 400px;
+	height: 225px;
+	//margin-top: 25px;
+	//font-size: 20px;
+	display: block;
+    //margin-left: 1%;
+    margin-right: auto;
+	//float: left;
+}
+
+#NASA-pic{
+	width: 250px;
+	height: 400px;
+	//margin-top: 25px;
+	//font-size: 20px;
+	display: block;
+    //margin-left: 1%;
+    margin-right: auto;
+
+}
+.div-button
+{
+    margin-left: 40px;
+}

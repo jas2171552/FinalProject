@@ -1,0 +1,118 @@
+<!--
+    Final Project
+
+    Author: Jason Richmond
+    Date:   12/02/2018
+
+    Filename: JavaScript.html
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  
+  
+<body>
+<p><a>
+
+"use strict";  <font color="green">// intereperet contents in JavaScript strict mode</font><br>
+<br>
+<font color="green">// declare golabal variables</font><br>
+var NASAdata;<br>
+var image = document.getElementsByClassName("NASApic");<br>
+var imageURL;<br>
+var userSelect = 0;<br>
+<br>
+<font color="green">// run setUpPage() function when page finishes loading</font><br>
+window.addEventListener("load", setUpPage, false);<br>
+<br>
+<br>
+<font color="green">// perform setup tasks when page first loads - load  initial data response from NASA for current date's picture</font><br>
+function setUpPage() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;getNASA();<br>
+}<br>
+<br>
+function getNASA() {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color="green">// Create a request variable and assign a new XMLHttpRequest object to it.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	var request = new XMLHttpRequest();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	var yesterdayDate = getYesterdaysDate();	<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	var userSelect = 1;<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color="green">// Open a new connection, using the GET request on the URL endpoint</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	request.open('GET', 'https://api.nasa.gov/planetary/apod?api_key=2sl7rmOrAKCKBZXOZfH6he3ZIN8OnEamcZzEKPXh', true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	request.responseType = 'json';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	request.send();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	request.onload = function () {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<font color="green">// Begin accessing JSON data here</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		NASAdata = request.response;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<font color="green">//image.src = NASAdata.url;	</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		imageURL = NASAdata.url;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("NASA-pic").src = NASAdata.url<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("title").innerHTML = NASAdata.title;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("date").innerHTML = NASAdata.date;<br>		
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("explanation").innerHTML = NASAdata.explanation;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("copyright").innerHTML = NASAdata.copyright;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("url").innerHTML = NASAdata.url;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	var btn = document.getElementById("yestPic");<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	btn.innerHTML = 'Show Yesterdays Picture'<br>
+}<br>
+<br>
+<br>
+function getYesterdaysDate() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    var date = new Date();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    date.setDate(date.getDate()-1);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    return date.getFullYear() + '-' + (date.getMonth()+1)  + '-' + date.getDate();<br>
+}<br>
+<br>
+<br>
+function getNASAyesterday() {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color="green">// Create a request variable and assign a new XMLHttpRequest object to it.</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	var request = new XMLHttpRequest();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color="green">// Create a variable for the previous day's date.  This is used in the URL sent to NASA for the new picture and data</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	var yesterdayDate = getYesterdaysDate();	//'2018-12-01';//<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color="green">// Open a new connection, using the GET request on the URL endpoint</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	request.open('GET', 'https://api.nasa.gov/planetary/apod?api_key=2sl7rmOrAKCKBZXOZfH6he3ZIN8OnEamcZzEKPXh&date=' + yesterdayDate, true);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	request.responseType = 'json';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	request.send();<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<font color="green">// Parse response from NASA and populate fields on the Demonstration.html page</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	request.onload = function () {<br>
+<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<font color="green">// Begin accessing JSON data here</font><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		NASAdata = request.response;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		imageURL = NASAdata.url;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("NASA-pic").src = NASAdata.url<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("title").innerHTML = NASAdata.title;		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("date").innerHTML = NASAdata.date;		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("explanation").innerHTML = NASAdata.explanation;		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("copyright").innerHTML = NASAdata.copyright;		<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		document.getElementById("url").innerHTML = NASAdata.url;				<br>
+	}<br>
+<br>
+	
+}
+
+<font color="green">// Refresh data if user clicks button to see previous NASA image</font>
+document.getElementById("yestPic").addEventListener("click",getNASAyesterday,false);
+
+<font color="green">// Refresh data if user clicks button to see previous NASA image</font>
+document.getElementById("todayPic").addEventListener("click",getNASA,false);
+
+<p><a>
+
+
+
+
+
+</body>
+</html>

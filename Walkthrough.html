@@ -1,0 +1,160 @@
+<!--
+    Final Project
+
+    Author: Jason Richmond
+    Date:   12/02/2018
+
+    Filename: NASA.js
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <!--One stylesheet for the tutorial -->
+  <link rel="stylesheet" href="Stylesheets/Tutorial.css">
+  
+  
+<body>
+
+	<!-- Top section where the JavaScript image and lesson title is  -->
+	<div class="header">
+		<div id = "main-pic">
+			<img src="Images/javascript.jpg" align="left">
+			
+		</div> 
+	  <h1>JavaScript Tutorial - Lesson 11</h1>
+	</div>
+
+	<!-- Navigation bar along the left side -->
+	<div class="clearfix">
+	  <div class="column menu">
+		<ul>
+		  <li><a href="Index.html">Home</a></li>
+		  <li><a href="Walkthrough.html">Walkthrough</a></li>
+		  <li><a href="Demonstration.html">Demonstration</a></li>
+		</ul>
+	  </div>
+
+	  <!-- Main section with NASA pitcture and description-->
+	  <div class="column content" id="NASA">
+		<h1>NASA API Walkthrough - Working with HTTP</h1>
+		
+		<!-- Fist paragraph -->
+		<p><a id="2">Using Ajax to update data invoves the steps below:</a></p>
+		<p></p>
+		<ol type="1">
+		  <li><p style="margin-bottom:0;"><a id="2">Instantiate an XMLHttpRequest object for the web browser where the script is run.</a></p></li>
+		  <li><p style="margin : 0; padding-top:0;"><a id="2">Use the XMLHttpRequest object to send a request to the distant server.</a></p></li>
+		  <li><p style="margin : 0; padding-top:0;"><a id="2">Receive the response from the distant server containing the requested data.</a></p></li>
+		  <li><p style="margin : 0; padding-top:0;"><a id="2">Process the data returned from the distant server, and incorporate into the webpage.</a></p></li>
+		</ol>
+		<p></p>
+		<!-- Picture of HttpRequest-->
+		<img src="Images/HttpRequest.jpg" class="left">
+		<p></p>
+		<p><a id="2">The 1st step is to instantiate an HttpRequest object.  The example used in the NASA Demonstration is below </a></p>
+		<p></p>
+		<p><a id="2"><font color="red">var</font> 
+					 <font color="blue">request</font>
+					 <font color="red">= new</font>
+					 <font color="blue">XMLHttpRequest();</font></a></p>
+		<p></p>
+		<p><a id="2">The 2nd step is to open the connection to the Web Service.  Part of this process includes sending the URL for the API as well as any parameters the API
+				     may use.  In the NASA example, the Web Servive has 3 parameters:</a></p>
+		<p></p>
+		<p></p>
+		<p><a id="2">Query Parameters</a></p>
+		<p></p>
+		<table id="t01" border="1">
+			<col width="150">
+			<col width="150">
+			<col width="150">
+			<col width="500">
+		  <tr>
+			<th>Parameter</th>
+			<th>Type</th>
+			<th>Default</th>
+			<th>Description</th>
+		  </tr>
+		  <tr>
+			<td>date</td>
+			<td>YYYY-MM-DD</td>
+			<td>today</td>
+			<td>The date of the image to retrieve</td>
+		  </tr>
+		  <tr>
+			<td>hd</td>
+			<td>bool</td>
+			<td>False</td>
+			<td>Retrieve the URL for the high resolution image</td>
+		  </tr>
+		  <tr>
+			<td>api_key</td>
+			<td>string</td>
+			<td>DEMO_KEY</td>
+			<td>api.nasa.gov key for expanded usage</td>
+		  </tr>
+		</table>
+		<p></p>
+		<p><a id="2">Example Query</a></p>
+		<ul style="list-style-type:none">
+			<li><a id="2"><font color="blue">https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY</font></a></li>
+		</ul>
+		<p></p>
+		<p><a id="2">String used in the walkthrough example.  The first line assembles the connection string, the second establishes the response type, and the third sends the request</a></p>
+		<p></p>
+		<ul style="list-style-type:none">
+			<li><a id="2"><font color="blue">request.open('GET', 'https://api.nasa.gov/planetary/apod?api_key=2sl7rmOrAKCKBZXOZfH6he3ZIN8OnEamcZzEKPXh', true);</font></a></li>
+			<li><a id="2"><font color="blue">request.responseType = 'json';</font></a></li>
+			<li><a id="2"><font color="blue">request.send();</font></a></li>
+		</ul>
+		<p></p>
+		<p><a id="2">The 3rd step in the process is to capture the response from the Web Service. Since we instructed the Web Servie to respond in JSON, that is the format we will be receiving.
+				     The image below demonstrates the unformatted response from NASA to the web call.  </a></p>
+		<p></p>
+		<img src="Images/JSON.jpg" class="left">
+		<p></p>
+		<p><a id="2">The 4th and final step is to parse the JSON data and use it appropriatly witin your application.  In the NASA Demonstration, I displayed the image in 
+			         the image URL returned, and all of the image metadata.  The response is loaded into a variable and each field is a member of an array.  </a></p>
+		<p></p>
+		<ul style="list-style-type:none">
+			<li><a id="2"><font color="blue">NASAdata = request.response;</font></a></li>
+		</ul>
+		<p></p>
+		<p><a id="2">In the previous figure you can see the fields: date, explaination, hdurl, media_type, service version, etc.  The figure does not show them but additional 
+		             fields are also present.  Those include: title, URL, and copyright.  The values for each of these can be extracted from the return string.  
+					 Continueing with the NASA example you can see below each of the fields are captured and its' value mapped to an HTML field within the Demonstration web 
+					 page.</a></p>
+		<p></p>
+		<ul style="list-style-type:none">
+			<li><a id="2"><font color="blue">document.getElementById("NASA-pic").src = NASAdata.url;</font></a></li>
+			<li><a id="2"><font color="blue">document.getElementById("title").innerHTML = NASAdata.title;</font></a></li>
+			<li><a id="2"><font color="blue">document.getElementById("date").innerHTML = NASAdata.date;</font></a></li>
+			<li><a id="2"><font color="blue">document.getElementById("explanation").innerHTML = NASAdata.explanation;</font></a></li>
+			<li><a id="2"><font color="blue">document.getElementById("copyright").innerHTML = NASAdata.copyright;</font></a></li>
+			<li><a id="2"><font color="blue">document.getElementById("url").innerHTML = NASAdata.url;</font></a></li>
+		</ul>
+		<p></p>
+		<p><a id="2">In the NASA demonstration on this site, when the page is loaded an event is fired.  Within this even the call for the current days image	
+          		     made and the page is populated.  The user can click the button to display the previous days image or toggle back to the cuurent days image.  
+					 The methods for these event is outside of the scope of this lesson but the complete JavaScript can be seen here:</a></p>
+		<p></p>
+		<ul style="list-style-type:none">
+			<li><a href="JavaScript.html" target="_blank"><font color="blue"><ins>See the JavaScript</ins></font></a></li>
+		</ul>
+		
+		
+	  </div>
+	</div>
+
+	<!-- Footer showing name and class-->
+	<div class="footer">
+	  <p style="margin-bottom:0;"><a2>Jason Richmond</a2></p>
+	  <p style="margin : 0; padding-top:0;"><a2>Fall 2018 - CIS166AA - 23047</a2></p>
+	</div>
+
+
+</body>
+</html>

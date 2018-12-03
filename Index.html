@@ -1,0 +1,99 @@
+<!--
+    Final Project
+
+    Author: Jason Richmond
+    Date:   12/02/2018
+
+    Filename: NASA.js
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <!--One stylesheet for the tutorial -->
+  <link rel="stylesheet" href="Stylesheets/Tutorial.css">
+  
+  
+<body>
+	<!-- Top section where the JavaScript image and lesson title is  -->
+	<div class="header">
+		<div id = "main-pic">
+			<img src="Images/javascript.jpg" class="left">
+		</div> 
+	  <h1>JavaScript Tutorial - Lesson 11</h1>
+	</div>
+
+	<!-- Navigation bar along the left side -->
+	<div class="clearfix">
+	  <div class="column menu">
+		<ul>
+		  <li><a href="Index.html">Home</a></li>
+		  <li><a href="Walkthrough.html">Walkthrough</a></li>
+		  <li><a href="Demonstration.html">Demonstration</a></li>
+		</ul>
+	  </div>
+
+	  <!-- Main section with text-->
+	  <div class="column content">
+	    <!-- Heading -->
+		<h1>Updating Web Pages With AJAX</h1>
+		<!-- Fist paragraph -->
+		<p><a id="2">Ajax is a technique that allows web pages displayed on a client computer to quickly interact and exchange data with a web server without reloading the entire page.  
+					 Ajax relies on JavaScript and a data interchange format, such as JSON or XML.  The XMLHttpRequest object –commonly referred to as the XHR object – uses HTTP to 
+					 exchange data between a client computer and a web server.  Unlike standard HTTP requests, the XMLHttpRequest object can be used to request and receive data without 
+					 reloading a web page.</a></p>
+		
+		<!-- Sketch of overall process  -->
+		<img src="Images/web20.png" class="left">
+		
+		<!-- Second paragraph-->
+		<p><a id="2">Google was one of the first commercial websites to implement an Ajax application – its Google suggest search functionality.  As the user begins typing in their 
+					 search box, search suggestions like those shown below begin to appear.  The important thing to remember is that as the user types each letter, JavaScript code 
+					 uses the XMLHttpRequest object to send the string to the Google Server, which attempts to match the typed characters with a list of suggestions.  The Google 
+					 sever then returns the list of suggestions to the client computer (without refreshing the webpage) and JavaScript code populated the suggestion list with the 
+					 response text.</a></p>
+		
+		<!-- Picture of Google showing predictive text-->
+		<img src="Images/GoogleSearch.png" class="left">
+		<p></p>
+		<p><a id="2">One way information can be exchanged is through a Web Service.  This is where a data source is sxposed by one domain for use on other domains.  These Web 
+			         Services are simply a service in which data is sent in response to a request using the methods and properties of their API’s (Application Program 
+					 Interface).</a></p>
+		<p></p>
+		<p><a id="2">Some examples of Web Services would include real-time pricing on commodities or stocks, current weather and the like.  On the Demonstration link 
+				    of this tutorial a link connection is made to the NASA, Picture of the Day, Web Service and pulls back data which includes an image.  One item of 
+					note is most web services require an API key in order to limit the number of calls in a time period.  Additionally, many Web Services offer 
+					instructions for connecting as well as parameters and method call lists.  You can go to NASA’s API site here:  https://api.nasa.gov/</a></p>
+		<p></p>
+		
+		
+		
+		<!-- Too long / didnt read summary-->
+		<p><a>TL;DL</a></p>
+		<ul>
+		  <li><p style="margin-bottom:0;"><a id="2">AJAX = Asynchronous JavaScript And XML.</a></p></li>
+		  <li><p style="margin : 0; padding-top:0;"><a id="2">AJAX is not a programming language.</a></p></li>
+		  <li><p style="margin : 0; padding-top:0;"><a id="2">AJAX just uses a combination of:</a></p></li>
+		  <ul>
+				<li><p style="margin : 0; padding-top:0;"><a id="2">A browser built-in XMLHttpRequest object (to request data from a web server)</a></p></li>
+				<li><p style="margin : 0; padding-top:0;"><a id="2">JavaScript</a></p></li>
+				<li><p style="margin : 0; padding-top:0;"><a id="2">HTML DOM (to display or use the data)</a></p></li>
+		  </ul>
+		</ul>
+		
+		
+	  </div>
+	</div>
+
+	<!-- Footer showing name and class-->
+	<div class="footer">
+	  <p style="margin-bottom:0;"><a2>Jason Richmond</a2></p>
+	  <p style="margin : 0; padding-top:0;"><a2>Fall 2018 - CIS166AA - 23047</a2></p>
+	</div>
+
+
+
+</body>
+</html>

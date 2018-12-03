@@ -1,0 +1,91 @@
+<!--
+    Final Project
+
+    Author: Jason Richmond
+    Date:   12/02/2018
+
+    Filename: Demonstration.html
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <!--One stylesheet for the tutorial -->
+  <link rel="stylesheet" href="Stylesheets/Tutorial.css">
+  
+  
+<body>
+
+	<!-- Top section where the JavaScript image and lesson title is  -->
+	<div class="header">
+		<div id = "main-pic">
+			<img src="Images/javascript.jpg" align="left">
+			
+		</div> 
+	  <h1>JavaScript Tutorial - Lesson 11</h1>
+	</div>
+
+	<!-- Navigation bar along the left side -->
+	<div class="clearfix">
+	  <div class="column menu">
+		<ul>
+		  <li><a href="Index.html">Home</a></li>
+		  <li><a href="Walkthrough.html">Walkthrough</a></li>
+		  <li><a href="Demonstration.html">Demonstration</a></li>
+		</ul>
+	  </div>
+
+	  <!-- Main section with NASA pitcture and description-->
+	  <div class="column content" id="NASA">
+		<h1>NASA Picture of the day!</h1>
+			<!-- <img id="NASA-pic" class="left">  -->
+		<table id="NASA-table" class="table" cellpadding="0" cellspacing="10" >
+			<col width="20%">
+			<col width="80%">
+			<tr style="margin:0">
+				<th rowspan="5"><img id="NASA-pic" class="left"> </th>
+				<td></p><p><a id=title></a></p></td>
+			</tr>
+			<tr>
+				<td><p><a id=date></a></p></td>
+			</tr>
+			<tr>
+				<td><p><a id=explanation></a></p></td>
+			</tr>
+			<tr>
+				<td><p><a id=copyright></a></p></td>
+			</tr>
+			<tr>
+				<td><p><a id=url></a></p></td>
+			</tr>
+			<tr align="center">			
+				<p></p>
+				<div id="button">
+				<td><button type="button" id="yestPic">Show Yesterdays Picture</button></td>
+			</tr>
+			<tr align="center">
+				<td><button type="button" id="todayPic">&nbsp;&nbsp;&nbsp;Show Todays Picture&nbsp;&nbsp;&nbsp;</button></td>				
+			</tr>
+			</div>
+				<!--
+				<td><p><a id=functionDate>Blank</a></p></td>
+				-->
+			</tr>
+		</table>
+		
+		
+	  </div>
+	</div>
+
+	<!-- Footer showing name and class-->
+	<div class="footer">
+	  <p style="margin-bottom:0;"><a2>Jason Richmond</a2></p>
+	  <p style="margin : 0; padding-top:0;"><a2>Fall 2018 - CIS166AA - 23047</a2></p>
+	</div>
+
+<script src="Javascript/NASA.js"></script>
+
+</body>
+</html>
