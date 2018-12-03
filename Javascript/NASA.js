@@ -29,7 +29,8 @@ function getNASA() {
 	// Create a request variable and assign a new XMLHttpRequest object to it.
 	var request = new XMLHttpRequest();
 	var yesterdayDate = getYesterdaysDate();	
-	
+	var x = document.getElementById("NASA-pic");
+	var y = document.getElementById("video");
 	var userSelect = 1;
 	
 	// Open a new connection, using the GET request on the URL endpoint
@@ -43,7 +44,19 @@ function getNASA() {
 		NASAdata = request.response;
 		//image.src = NASAdata.url;	
 		imageURL = NASAdata.url;
-		document.getElementById("NASA-pic").src = NASAdata.url
+		if (NASAdata.media_type ==="image") {
+			 // turn on image container
+			 x.style.display = "block";
+			 // turn off video notification
+			 y.style.display = "none";	
+			 document.getElementById("NASA-pic").src = NASAdata.url
+		} else {
+			// turn on video container
+			y.style.display = "block";	
+			// turn off image container
+			x.style.display = "none";	
+			document.getElementById("video").innerHTML = "Today's image is a video.  Click link to the below to view";
+		}			
 		document.getElementById("title").innerHTML = NASAdata.title;		
 		document.getElementById("date").innerHTML = NASAdata.date;		
 		document.getElementById("explanation").innerHTML = NASAdata.explanation;		
@@ -70,6 +83,10 @@ function getNASAyesterday() {
 	// Create a variable for the previous day's date.  This is used in the URL sent to NASA for the new picture and data
 	var yesterdayDate = getYesterdaysDate();	//'2018-12-01';//
 	
+	var x = document.getElementById("NASA-pic");
+	var y = document.getElementById("video");
+	
+	
 	// Open a new connection, using the GET request on the URL endpoint
 	request.open('GET', 'https://api.nasa.gov/planetary/apod?api_key=2sl7rmOrAKCKBZXOZfH6he3ZIN8OnEamcZzEKPXh&date=' + yesterdayDate, true);
 	request.responseType = 'json';
@@ -81,7 +98,20 @@ function getNASAyesterday() {
 		// Begin accessing JSON data here
 		NASAdata = request.response;
 		imageURL = NASAdata.url;
-		document.getElementById("NASA-pic").src = NASAdata.url
+		if (NASAdata.media_type ==="image") {
+			 // turn on image container
+			 x.style.display = "block";
+			 // turn off video notification
+			 y.style.display = "none";	
+			 document.getElementById("NASA-pic").src = NASAdata.url
+		} else {
+			// turn on video container
+			y.style.display = "block";	
+			// turn off image container
+			x.style.display = "none";	
+			document.getElementById("video").innerHTML = "Today's image is a video.  Click link to the below to view";
+		}
+		//document.getElementById("NASA-pic").src = NASAdata.url
 		document.getElementById("title").innerHTML = NASAdata.title;		
 		document.getElementById("date").innerHTML = NASAdata.date;		
 		document.getElementById("explanation").innerHTML = NASAdata.explanation;		
